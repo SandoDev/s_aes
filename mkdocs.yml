@@ -1,0 +1,11 @@
+site_name: S-AES
+
+nav:
+  - Introducción: index.md
+  - Metodología: metodology.md
+  - Resultados: results.md
+  - Referencias: references.md
+
+theme:
+  name: mkdocs
+  locale: es
