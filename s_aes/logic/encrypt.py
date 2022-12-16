@@ -6,7 +6,7 @@ from s_aes.logic.utils import listhex_to_bin
 from s_aes.logic.utils import matrixhex_to_bin
 from s_aes.logic.utils import matrixbin_to_hex
 from s_aes.logic.utils import matrix_to_list
-from s_aes.logic.utils import print_hex_matrix
+from s_aes.logic.utils import print_hex_matrix, print_matrix
 
 from s_aes.logic.methods import add_key, nibble_substitution, shift_row, mix_column
 

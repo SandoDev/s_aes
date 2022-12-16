@@ -58,15 +58,13 @@ def print_matrix(matrix):
         print()
 
 
-def matrixhex_to_bin(matrix, alter: bool = False):
+def matrixhex_to_bin(matrix):
     m00 = bin(int(matrix[0][0], 16))[2:].zfill(4)
     m10 = bin(int(matrix[1][0], 16))[2:].zfill(4)
     m01 = bin(int(matrix[0][1], 16))[2:].zfill(4)
     m11 = bin(int(matrix[1][1], 16))[2:].zfill(4)
-    if alter:
-        return [[m00, m10], [m01, m11]]
-    else:
-        return [[m00, m01], [m10, m11]]
+
+    return [[m00, m01], [m10, m11]]
 
 
 def matrixbin_to_hex(matrix):
