@@ -53,22 +53,28 @@ def encrypt_saes(value_to_encrypt, keys):
     list_in_hex, _ = ascii_to_hex(value_to_encrypt, step=1)
     list_in_bin = listhex_to_bin(list_in_hex)
     list_in_bin = listbin_split(list_in_bin, split=4)
-    matrix_in_bin = listbin_to_matrix(list_in_bin)
 
-    # Round 0
-    new_state = round_0(matrix_in_bin, k0)
-    # print_hex_matrix(new_state)
+    f_text = ""
+    for i in range(0, len(list_in_bin), 4):
+        list_in_bin2 = list_in_bin[i:i+4]
+        matrix_in_bin = listbin_to_matrix(list_in_bin2)
 
-    # Round 1
-    new_state = round_1(new_state, k1)
-    # print_hex_matrix(new_state)
+        # Round 0
+        new_state = round_0(matrix_in_bin, k0)
+        # print_hex_matrix(new_state)
 
-    # Round 2
-    new_state = round_2(new_state, k2)
-    # print_hex_matrix(new_state)
+        # Round 1
+        new_state = round_1(new_state, k1)
+        # print_hex_matrix(new_state)
 
-    matrix_hex = matrixbin_to_hex(new_state)
-    _, str_hex = matrix_to_list(matrix_hex)
-    _, text_encrypt = hex_to_ascii(str_hex, 2)
+        # Round 2
+        new_state = round_2(new_state, k2)
+        # print_hex_matrix(new_state)
 
-    return text_encrypt
+        matrix_hex = matrixbin_to_hex(new_state)
+        _, str_hex = matrix_to_list(matrix_hex)
+        _, text_encrypt = hex_to_ascii(str_hex, 2)
+
+        f_text += text_encrypt
+
+    return f_text
